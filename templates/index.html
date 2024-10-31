@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processador de Imagens</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Logos nos cantos -->
+    <img src="{{ url_for('static', filename='logos/lncc.png') }}" alt="LNCC" class="logo logo-top-left">
+    <img src="{{ url_for('static', filename='logos/snct2.png') }}" alt="SNCT" class="logo logo-bottom-right">
+    <img src="{{ url_for('static', filename='logos/martin.png') }}" alt="Martin" class="logo logo-top-right">    
+
+    <div class="container">
+        <h1>Processador de Imagens em Blocos</h1>
+        <p>Escolha uma imagem para processar:</p>
+        <div class="gallery">
+            {% for image in images %}
+                <div class="image-container">
+                    <a href="{{ url_for('process', image_name=image) }}">
+                        <img src="{{ url_for('static', filename='images/' + image) }}" alt="{{ image }}">
+                    </a>
+                    <p>{{ image }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
+
+
