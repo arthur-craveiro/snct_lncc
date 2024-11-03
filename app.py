@@ -28,16 +28,24 @@ def process_image(image):
         final_image.paste(block, (x, y))
     return final_image
 
-
 @app.route('/')
 def index():
-    # Listar as imagens da pasta
-    image_files = os.listdir(IMAGE_FOLDER)
-    return render_template('index.html', images=image_files)
+    # Listar as categorias (nomes das pastas em IMAGE_FOLDER)
+    categories = [name for name in os.listdir(IMAGE_FOLDER) if os.path.isdir(os.path.join(IMAGE_FOLDER, name))]
+    return render_template('index.html', categories=categories)
 
-@app.route('/process/<image_name>')
-def process(image_name):
-    image_path = os.path.join(IMAGE_FOLDER, image_name)
+@app.route('/category/<category>')
+def category(category):
+    # Listar as imagens na categoria selecionada
+    category_path = os.path.join(IMAGE_FOLDER, category)
+    if os.path.exists(category_path):
+        image_files = os.listdir(category_path)
+        return render_template('category.html', category=category, images=image_files)
+    return "Categoria não encontrada.", 404
+
+@app.route('/process/<category>/<image_name>')
+def process(category, image_name):
+    image_path = os.path.join(IMAGE_FOLDER, category, image_name)
     if os.path.exists(image_path):
         image = Image.open(image_path)
         processed_image = process_image(image)

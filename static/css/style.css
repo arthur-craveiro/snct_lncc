@@ -81,3 +81,61 @@ p {
     bottom: 20px;
     right: 20px;
 }
+
+/* Estilo para as categorias */
+.category-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-container {
+    width: 150px;
+    text-align: center;
+    transition: transform 0.3s;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-container:hover {
+    transform: scale(1.05);
+}
+
+.category-container p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Remover sublinhado dos links de categorias */
+.category-container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-container a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o link "Voltar às Categorias" */
+.back-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-link:hover {
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+
