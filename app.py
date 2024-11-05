@@ -57,5 +57,5 @@ def process(category, image_name):
         return send_file(img_io, mimetype='image/jpeg')
     return "Erro: Imagem não encontrada.", 404
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+    #app.run(debug=True)
